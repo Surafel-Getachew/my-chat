@@ -17,7 +17,7 @@ const ChatState = (props) => {
 
   const initialState = {
     socket,
-    room: [],
+    rooms: [],
     currentMessage: "",
     recivedMessage: "",
     currentGroup: "",
@@ -39,9 +39,9 @@ const ChatState = (props) => {
     } catch (error) {}
   };
 
-  const loadRoom = () => {
+  const loadRooms = async () => {
     try {
-      const res = axios.get("/mychat/channel");
+      const res = await axios.get("/mychat/channel");
       dispatch({type:LOAD_ROOMS,payload:res.data})
     } catch (error) {
       
@@ -66,7 +66,7 @@ const ChatState = (props) => {
     <ChatContext.Provider
       value={{
         socket: state.socket,
-        room: state.room,
+        rooms: state.rooms,
         currentMessage: state.currentMessage,
         currentGroup: state.currentGroup,
         loadMessage: state.loadMessage,
@@ -74,6 +74,7 @@ const ChatState = (props) => {
         setCurrentMessage,
         createRoom,
         setCurrentGroup,
+        loadRooms
         // setRecivedMessage,
       }}
     >

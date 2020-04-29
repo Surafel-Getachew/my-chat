@@ -2,8 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import ChatContext from "../context/chatContext";
 
 const GroupNames = (props) => {
+  
   const chatContext = useContext(ChatContext);
-  const { setCurrentGroup } = chatContext;
+  const {setCurrentGroup } = chatContext;
   const [groupName, setGroupName] = useState("");
 
   const { gn } = groupName;

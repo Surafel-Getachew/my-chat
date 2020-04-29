@@ -6,6 +6,8 @@ import Messages from "./components/Messages";
 import ChatState from "./context/ChatState";
 import Dashboard from "./components/Dashboard";
 import Landing from "./components/Landing";
+import Room from "./components/Room";
+// import RoomItem from "./components/RoomItem";
 
 const App = () => {
   return (
@@ -14,7 +16,9 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/dash" component={Dashboard} />
-          <Route exact path="/rooms" component={GroupNames} />
+          <Route exact path="/room" component={GroupNames} />
+          <Route exact path = "/rooms" component = {Room} />
+          {/* <Route exact path = "/room" component = {Room} /> */}
           <Route exact path="/message" component={Messages} />
         </Switch>
       </Router>

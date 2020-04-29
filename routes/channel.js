@@ -8,7 +8,7 @@ const Channel = require("../models/Channel");
 
 router.get("/",async (req,res) => {
    const channels = await Channel.find();
-   res.send(channels);
+   res.json(channels);
 })
 
 router.post("/",async(req,res) => {

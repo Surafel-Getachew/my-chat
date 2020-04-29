@@ -4,7 +4,6 @@ import {
   SET_RECIVED_MESSAGE,
   CREATE_ROOM,
   LOAD_ROOMS,
-  LOAD_ROOMS
 } from "../types";
 
 export default (state, action) => {
@@ -17,12 +16,12 @@ export default (state, action) => {
     case CREATE_ROOM:
       return {
         ...state,
-        room:[...state.room,action.payload]
+        rooms:[...state.rooms,action.payload]
       }
     case LOAD_ROOMS:{
       return {
         ...state,
-        room:action.payload
+        rooms:action.payload
       }
     }    
     case SET_CURRENT_GROUP:
