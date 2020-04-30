@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 
-import ChatContext from "../context/chatContext";
+import ChatContext from "../context/chat/chatContext";
 
 const Dashboard = () => {
   const chatContext = useContext(ChatContext);

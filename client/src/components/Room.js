@@ -1,5 +1,5 @@
 import React, { useContext,useEffect } from "react";
-import ChatContext from "../context/chatContext";
+import ChatContext from "../context/chat/chatContext";
 import RoomItem from "./RoomItem";
 
 const Room = () => {

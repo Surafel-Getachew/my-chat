@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import ChatContext from "../context/chatContext";
+import ChatContext from "../context/chat/chatContext";
 
 const GroupNames = (props) => {
   

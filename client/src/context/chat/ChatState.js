@@ -10,7 +10,7 @@ import {
   SET_CURRENT_GROUP,
   LOAD_ROOMS,
   SET_RECIVED_MESSAGE,
-} from "../types";
+} from "../../types";
 
 const ChatState = (props) => {
   const socket = io("http://localhost:500");

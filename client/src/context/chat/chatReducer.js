@@ -4,7 +4,7 @@ import {
   SET_RECIVED_MESSAGE,
   CREATE_ROOM,
   LOAD_ROOMS,
-} from "../types";
+} from "../../types";
 
 export default (state, action) => {
   switch (action.type) {

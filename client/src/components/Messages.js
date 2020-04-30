@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import ChatContext from "../context/chatContext";
+import ChatContext from "../context/chat/chatContext";
 import DisplayMessage from "./DisplayMessage";
 
 const Messages = () => {
