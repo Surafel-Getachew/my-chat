@@ -60,6 +60,10 @@ router.post(
   }
 );
 
+router.post("/facebook",passport.authenticate("facebookToken",{session:false}),(req,res) => {
+  const token = signToken(req.user);
+  res.status(200).json({token})
+})
 
 router.get(
   "/secret",
