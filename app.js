@@ -11,7 +11,7 @@ const User = require("./models/User")
 // routes
 
 const channel = require("./routes/channel");
-
+const user = require("./routes/user");
 
 // util functions
 const { addUsers, getUser } = require("./utils/user");
@@ -28,7 +28,9 @@ app.use(express.json({extended:false}))
 app.use(express.static(publicDirectoryPath));
 connectDB();
 
-app.use("/mychat/channel",channel)
+// routes
+app.use("/mychat/channel",channel);
+app.use("/mychat/user",user);
 
 const welcomeMessage = "welocme to my-chat";
 

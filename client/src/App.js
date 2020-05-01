@@ -10,6 +10,9 @@ import Room from "./components/Room";
 import Facebook from "./components/auth/Facebook";
 // import RoomItem from "./components/RoomItem";
 
+// 399788636327-5v1491na1eaj69ou453v0r7bm8tp2ajt.apps.googleusercontent.com ========= client id
+// PnOy1u0863ltxxJEhgPO9Lva ======== client secret.
+
 const App = () => {
   return (
     <ChatState>

@@ -4,3 +4,7 @@ export const SET_CURRENT_GROUP = "SET_CURRENT_GROUP";
 export const SET_RECIVED_MESSAGE = "SET_RECIVED_MESSAGE";
 export const CREATE_ROOM = "CREATE_ROOM";
 export const LOAD_ROOMS = "LOAD_ROOMS"
+
+// user 
+
+export const REGISTER_USER = "REGISTER_USER";
