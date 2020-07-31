@@ -22,10 +22,10 @@ const io = socketio(server);
 
 const port = 500 || process.env.PORT;
 
-const publicDirectoryPath = path.join(__dirname, "./client/src");
+// const publicDirectoryPath = path.join(__dirname, "./client/src");
 
 app.use(express.json({extended:false}))
-app.use(express.static(publicDirectoryPath));
+// app.use(express.static(publicDirectoryPath));
 connectDB();
 
 // routes

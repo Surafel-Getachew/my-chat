@@ -3,8 +3,14 @@ export const SET_CURRENT_MESSAGE = "SET_CURRENT_MESSAGE";
 export const SET_CURRENT_GROUP = "SET_CURRENT_GROUP";
 export const SET_RECIVED_MESSAGE = "SET_RECIVED_MESSAGE";
 export const CREATE_ROOM = "CREATE_ROOM";
-export const LOAD_ROOMS = "LOAD_ROOMS"
+export const LOAD_ROOMS = "LOAD_ROOMS";
+export const LOAD_USERS = "LOAD_USERS";
+export const LOAD_LOGEDIN_USERS = "LOAD_LOGEDIN_USERS";
 
 // user 
 
 export const REGISTER_USER = "REGISTER_USER";
+export const LOGIN_USER = "LOGIN_USER";
+export const REGISTER_FACEBOOK = "REGISTER_FACEBOOK";
+export const REGISTER_GOOGLE = "REGISTER_GOOGLE";
+export const AUTH_ERROR = "AUTH_ERROR";

@@ -6,6 +6,7 @@ const JWT = require("jsonwebtoken");
 const passportConfig = require("../passportConfig");
 const User = require("../models/User");
 const { JWT_SECRET } = require("../config/config");
+const { response } = require("express");
 
 const signToken = (user) => {
   return JWT.sign(
@@ -72,5 +73,19 @@ router.get(
     res.send("test");
   }
 );
+
+router.get("/", passport.authenticate("jwt", { session: false }),(req,res) => {
+  res.json(req.user);
+});
+
+// get all the users
+
+router.get("/all" ,async (req,res) => {
+  const users = await User.find({});
+  res.json(users);
+})
+
+
+
 
 module.exports = router;
