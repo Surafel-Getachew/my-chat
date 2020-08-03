@@ -34,6 +34,9 @@ const userSchema = mongoose.Schema({
         lowercase: true,
       },
     },
+    avatar:{
+      type:Buffer
+    }
 });
 
 userSchema.pre("save", async function (next) {

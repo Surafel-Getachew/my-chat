@@ -38,12 +38,6 @@ io.on("connection", (socket) => {
 
 
   socket.on("join", async(groupName) => {
-
-    const user = new User({
-      channelName:groupName,
-      socketid:socket.id
-    })
-    await user.save()
     
     socket.join(groupName);
 

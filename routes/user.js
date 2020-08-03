@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const JWT = require("jsonwebtoken");
-
+const multer = require("multer");
 
 const passportConfig = require("../passportConfig");
 const User = require("../models/User");
@@ -84,6 +84,23 @@ router.get("/all" ,async (req,res) => {
   const users = await User.find({});
   res.json(users);
 })
+
+const upload = multer ({
+  
+})
+
+router.post(
+  "/avatar",
+  passport.authenticate("jwt", { session: false }),
+  upload.single("avatar"),
+  async (req, res) => {
+    req.user.avatar=req.file.buffer
+    await req.user.save();
+    console.log(req.user.avatar)
+    res.send(req.user);
+  }
+);
+
 
 
 

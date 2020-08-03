@@ -1,0 +1,6 @@
+.chatContainer{
+ display: grid;
+ grid-template-columns: 1fr 2fr;
+ justify-content: space-between;
+ width:80vw;
+}

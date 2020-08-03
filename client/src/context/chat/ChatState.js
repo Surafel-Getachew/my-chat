@@ -10,6 +10,8 @@ import {
   SET_CURRENT_GROUP,
   LOAD_ROOMS,
   SET_RECIVED_MESSAGE,
+  ASSIGN_SENDER,
+  ASSIGN_RECIVER
 } from "../../types";
 
 const ChatState = (props) => {
@@ -17,6 +19,8 @@ const ChatState = (props) => {
 
   const initialState = {
     socket,
+    to:"",
+    from:"",
     rooms: [],
     currentMessage: "",
     recivedMessage: "",
@@ -26,6 +30,25 @@ const ChatState = (props) => {
 
   const [state, dispatch] = useReducer(ChatReducer, initialState);
 
+  const assignSender = (sender) => {
+    dispatch({type:ASSIGN_SENDER,payload:sender})
+  }
+
+  const assignReciver = (reciver) => {
+    dispatch({type:ASSIGN_RECIVER,payload:reciver})
+  }
+
+
+  const setCurrentGroup = (groupName) => {
+    socket.emit("join", groupName);
+    dispatch({ type: SET_CURRENT_GROUP, payload: groupName });
+  };
+
+  const setCurrentMessage = (message) => {
+    socket.emit("send", message);
+    dispatch({ type: SET_CURRENT_MESSAGE, payload: message.text });
+  };
+  
   const createRoom = (formData) => {
     const config = {
       headers: {
@@ -48,29 +71,24 @@ const ChatState = (props) => {
     }
   }
 
-  const setCurrentGroup = (groupName) => {
-    socket.emit("join", groupName);
-    dispatch({ type: SET_CURRENT_GROUP, payload: groupName });
-  };
-
   socket.on("message", (message) => {
     dispatch({ type: SET_RECIVED_MESSAGE, payload: message });
   });
 
-  const setCurrentMessage = (message) => {
-    socket.emit("send", message);
-    dispatch({ type: SET_CURRENT_MESSAGE, payload: message.text });
-  };
 
   return (
     <ChatContext.Provider
       value={{
         socket: state.socket,
         rooms: state.rooms,
+        to:state.to,
+        from:state.from,
         currentMessage: state.currentMessage,
         currentGroup: state.currentGroup,
         loadMessage: state.loadMessage,
         recivedMessage: state.recivedMessage,
+        assignSender,
+        assignReciver,
         setCurrentMessage,
         createRoom,
         setCurrentGroup,

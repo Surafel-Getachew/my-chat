@@ -6,7 +6,7 @@ const Landing = () => {
   const {loadUser} = authContext;
   useEffect(() => {
     loadUser();
-  },[])
+  },[loadUser])
   return (
     <div>
       <h1>My Chat</h1>

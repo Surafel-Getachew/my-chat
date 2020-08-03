@@ -12,7 +12,7 @@ import Landing from "./components/Landing";
 import Room from "./components/Room";
 import Facebook from "./components/auth/Facebook";
 import AuthState from "./context/authentication/AuthState";
-import Users from "./private_chat/Users";
+import ChatPage from "./private_chat/ChatPage";
 
 
 import setAuthToken from "./utils/setAuthToken";
@@ -40,7 +40,7 @@ const App = () => {
             <Route exact path="/rooms" component={Room} />
             <Route exact path="/auth" component={Facebook} />
             <Route exact path="/message" component={Messages} />
-            <Route exact path="/privatechat" component={Users} />
+            <Route exact path="/privatechat" component={ChatPage} />
           </Switch>
         </Router>
       </ChatState>

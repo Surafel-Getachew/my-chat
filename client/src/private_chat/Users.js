@@ -1,23 +1,33 @@
-import React,{useContext,useEffect} from 'react'
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../context/authentication/authContext";
-import UsersItem from "./UsersItem"
+import ChatContext from "../context/chat/chatContext";
+import UsersItem from "./UsersItem";
 
 const Users = () => {
-    const authContext = useContext(AuthContext);
-    const {loadAllUsers,users} = authContext;
-    useEffect(() => {
-        loadAllUsers();
-    },[loadAllUsers])
+  const authContext = useContext(AuthContext);
+  const { loadAllUsers, users, loggedInUser } = authContext;
 
-    return (
-        <div>
-            {users.map((user) => (
-                <div>
-                    <UsersItem user={user} />
-                </div>
-            ))}
+  const chatContext = useContext(ChatContext);
+  const { assignSender,setCurrentGroup} = chatContext;
+
+  useEffect(() => {
+    loadAllUsers();
+  }, [loadAllUsers]);
+
+  useEffect(() => {
+    assignSender(loggedInUser._id);
+    setCurrentGroup(loggedInUser._id);
+  }, [loggedInUser]);
+
+  return (
+    <div>
+      {users.map((user) => (
+        <div key={user._id}>
+          <UsersItem user={user} />
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
 
 export default Users;
